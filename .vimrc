@@ -58,7 +58,7 @@ set encoding=utf-8
 " give at least three lines of context at all times
 set scrolloff=3
 
-" show line and column on command bar
+" show line and column on status bar
 set ruler
 
 " show line numbers in gutter
@@ -71,7 +71,7 @@ set copyindent
 " highlight current line
 set cursorline
 
-" show current mode
+" tell me when I'm in insert or visual mode
 set showmode
 
 " this is the 21st century; we have a fast terminal
@@ -133,7 +133,7 @@ set incsearch
 " set hlsearch
 " nnoremap <leader><space> :noh<cr>
 
-" show matching bracket
+" highlight matching bracket
 set showmatch
 
 " highlight column 80
@@ -141,7 +141,7 @@ set colorcolumn=80
 
 " highlight tab and EOL characters
 set list
-set listchars=tab:▸\ ,eol:¬,trail:.,nbsp:.
+set listchars=tab:▸\ ,eol:¬,trail:.
 
 " save file on loss of focus
 autocmd FocusLost * :wa

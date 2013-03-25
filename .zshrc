@@ -7,13 +7,16 @@ plugins=(osx brew sublime git mercurial python pip virtualenvwrapper django npm)
 
 source $ZSH/oh-my-zsh.sh
 
-# ridiculous path
+# ridiculous PATH
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/python:/usr/local/share/npm/bin:/usr/bin:/usr/sbin:/bin:/sbin
 
 # shortcuts
+alias v='mvim'
 alias ll='ls -lah'
 alias vc='mvim $HOME/.vimrc'
 alias zc='mvim $HOME/.zshrc'
+alias cdp='cd $HOME/Projects'
+alias cddot='cd $HOME/Projects/dotfiles'
 alias cdbb='cd $HOME/Projects/bitbucket'
 alias cdboom='cd $HOME/Projects/boomtown'
 

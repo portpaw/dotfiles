@@ -141,7 +141,7 @@ set colorcolumn=80
 
 " highlight tab and EOL characters
 set list
-set listchars=tab:▸\ ,eol:¬,trail:.
+set listchars=tab:▸\ ,eol:¬
 
 " save file on loss of focus
 autocmd FocusLost * :wa

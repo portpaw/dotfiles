@@ -1,3 +1,6 @@
+# ridiculous PATH
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/python:/usr/local/share/npm/bin:/usr/bin:/usr/sbin:/bin:/sbin
+
 # ohmyzsh settings
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME='robbyrussell'
@@ -6,9 +9,6 @@ ZSH_THEME='robbyrussell'
 plugins=(osx brew sublime git mercurial python pip virtualenvwrapper django npm)
 
 source $ZSH/oh-my-zsh.sh
-
-# ridiculous PATH
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/python:/usr/local/share/npm/bin:/usr/bin:/usr/sbin:/bin:/sbin
 
 # shortcuts
 alias v='mvim'

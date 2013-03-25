@@ -140,29 +140,44 @@ set showmatch
 " highlight column 80
 set colorcolumn=80
 
-" highlight tab and EOL characters
+" show tab and EOL characters
 set list
 set listchars=tab:▸\ ,eol:¬
 
 " save file on loss of focus
 autocmd FocusLost * :wa
 
+" easy editing of vimrc
+nnoremap <leader>vc :sp ~/.vimrc<cr>
+
 " ack.vim
 nnoremap <leader>a :Ack
 
 " fugitive
-" nnoremap <leader>s :Gstatus<cr>
+nnoremap <leader>s :Gstatus<cr>
 
 " ctrlp
 let g:ctrlp_map = '<leader>f'
-nnoremap <leader>g :CtrlP $VIRTUAL_ENV/lib/python2.7/site-packages/<CR>
+" ctrlp for site-packages
+nnoremap <leader>g :CtrlP $VIRTUAL_ENV/lib/python2.7/site-packages/<cr>
+" ignore certain files and directories
 set wildignore+=*.pyc
 set wildignore+=*/node_modules/*
 set wildignore+=*/local/static/*
 
 " Syntastic
+" active mode
 let g:syntastic_check_on_open=1
+" cool symbols to mark errors and warnings
 let g:syntastic_enable_signs=1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
+" better line highlighting for errors
+highlight SyntasticErrorLine guibg=#5c0b09
+
+" EasyMotion
+" search forwards
+nmap <space> <leader><leader>f
+" search backwards
+nmap <C-space> <leader><leader>F
 

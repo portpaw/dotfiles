@@ -50,8 +50,8 @@ set expandtab
 set smarttab
 set shiftround
 
-" ^^ except for HTML, CSS, and JavaScript
-autocmd FileType html,css,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab smarttab shiftround
+" ^^ except for HTML, CSS, LESS, and JavaScript
+autocmd FileType html,css,less,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab smarttab shiftround
 
 " utf-8 by default, obvs
 set encoding=utf-8

@@ -151,7 +151,7 @@ autocmd FocusLost * :wa
 nnoremap <leader>vc :sp ~/.vimrc<cr>
 
 " ack.vim
-nnoremap <leader>a :Ack
+nnoremap <leader>a :Ack<space>
 
 " fugitive
 nnoremap <leader>s :Gstatus<cr>

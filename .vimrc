@@ -90,9 +90,9 @@ set backspace=indent,eol,start
 " hide buffers instead of closing them
 set hidden
 
-" backup files are so last century
-set nobackup
-set noswapfile
+" don't back up to the pwd
+set backupdir=/tmp
+set directory=/tmp
 
 " lots of history
 set history=1000

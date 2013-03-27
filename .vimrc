@@ -139,6 +139,9 @@ set listchars=tab:▸\ ,eol:¬
 " save file on loss of focus
 autocmd FocusLost * :wa
 
+" Source the vimrc file after saving it
+autocmd bufwritepost .vimrc source $MYVIMRC
+
 " help keys are annoying
 inoremap <F1> <esc>
 nnoremap <F1> <esc>

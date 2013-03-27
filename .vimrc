@@ -51,12 +51,12 @@ set expandtab
 set smarttab
 set shiftround
 
+" ^^ except for HTML, CSS, LESS, and JavaScript
+autocmd FileType html,htmldjango,css,less,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab smarttab shiftround
+
 " show dir listing when opening file
 set wildmenu
 set wildmode=list:longest
-
-" ^^ except for HTML, CSS, LESS, and JavaScript
-autocmd FileType html,htmldjango,css,less,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab smarttab shiftround
 
 " utf-8 by default, obvs
 set encoding=utf-8

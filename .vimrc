@@ -80,6 +80,9 @@ set cursorline
 " tell me when I'm in insert or visual mode
 set showmode
 
+" tell me things about the command I'm using
+set showcmd
+
 " this is the 21st century; we have a fast terminal
 set ttyfast
 

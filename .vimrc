@@ -27,6 +27,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'majutsushi/tagbar'
 Bundle 'klen/python-mode'
+Bundle 'ervandew/supertab'
 
 " Themes
 Bundle 'tomasr/molokai'

@@ -9,7 +9,7 @@ Bundle 'gmarik/vundle'
 " Plugins
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+Bundle 'mattn/zencoding-vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'Lokaltog/vim-easymotion'

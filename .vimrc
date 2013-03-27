@@ -102,6 +102,10 @@ set undofile
 set history=1000
 set undolevels=1000
 
+" all characters except for a-zA-Z0-9_ have a special meaning when searching
+nnoremap / /\v
+vnoremap / /\v
+
 " case-insensitive search, unless you include a capital letter
 set ignorecase
 set smartcase
@@ -130,9 +134,9 @@ set listchars=tab:▸\ ,eol:¬
 autocmd FocusLost * :wa
 
 " help keys are annoying
-inoremap <F1> <ESC>
-nnoremap <F1> <ESC>
-vnoremap <F1> <ESC>
+inoremap <F1> <esc>
+nnoremap <F1> <esc>
+vnoremap <F1> <esc>
 
 " easy split navigation
 nnoremap <C-h> <C-w>h
@@ -140,15 +144,11 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" all characters except for a-zA-Z0-9_ have a special meaning when searching
-nnoremap / /\v
-vnoremap / /\v
-
 " ; is easier to type than :
 nnoremap ; :
 
 " easy way back to normal mode
-inoremap jj <ESC>
+inoremap jj <esc>
 
 " EasyMotion
 " search forwards
@@ -157,7 +157,7 @@ nmap <space> <leader><leader>f
 nmap <C-space> <leader><leader>F
 
 " leader key
-let mapleader = ","
+let mapleader = ','
 
 " easy editing of vimrc
 nnoremap <leader>vc :sp ~/.vimrc<cr>
@@ -201,5 +201,5 @@ let g:pymode_syntax_slow_sync=0
 " don't let rope recursively search dirs for .ropeproject
 let g:pymode_rope_guess_project=0
 " add projects dir to python path
-let g:pymode_paths = ['~/Projects']
+let g:pymode_paths=['~/Projects']
 

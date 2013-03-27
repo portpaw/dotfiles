@@ -190,6 +190,8 @@ let g:pymode_folding=0
 let g:pymode_syntax_slow_sync=0
 " don't let rope recursively search dirs for .ropeproject
 let g:pymode_rope_guess_project=0
+" add projects dir to python path
+let g:pymode_paths = ['~/Projects']
 
 " rope
 nnoremap <leader>d :RopeGotoDefinition<cr>

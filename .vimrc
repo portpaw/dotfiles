@@ -51,6 +51,10 @@ set expandtab
 set smarttab
 set shiftround
 
+" show dir listing when opening file
+set wildmenu
+set wildmode=list:longest
+
 " ^^ except for HTML, CSS, LESS, and JavaScript
 autocmd FileType html,htmldjango,css,less,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab smarttab shiftround
 
@@ -92,6 +96,7 @@ set hidden
 " don't back up to the pwd
 set backupdir=/tmp
 set directory=/tmp
+set undofile
 
 " lots of history
 set history=1000

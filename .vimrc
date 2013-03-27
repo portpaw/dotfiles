@@ -100,6 +100,8 @@ set hidden
 " don't back up to the pwd
 set backupdir=/tmp
 set directory=/tmp
+
+" ^^ except for undo history files
 set undofile
 
 " lots of history

@@ -26,6 +26,8 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'scrooloose/syntastic'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'majutsushi/tagbar'
+Bundle 'klen/python-mode'
 
 " Themes
 Bundle 'tomasr/molokai'
@@ -180,4 +182,18 @@ highlight SyntasticErrorLine guibg=#5c0b09
 nmap <space> <leader><leader>f
 " search backwards
 nmap <C-space> <leader><leader>F
+
+" python-mode
+" turn off code folding
+let g:pymode_folding=0
+" for fast machines
+let g:pymode_syntax_slow_sync=0
+" don't let rope recursively search dirs for .ropeproject
+let g:pymode_rope_guess_project=0
+
+" rope
+nnoremap <leader>d :RopeGotoDefinition<cr>
+
+" tagbar
+nnoremap <leader>t :TagbarToggle<cr>
 

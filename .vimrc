@@ -102,30 +102,6 @@ set undofile
 set history=1000
 set undolevels=1000
 
-" leader key
-let mapleader = ","
-
-" ; is easier to type than :
-nnoremap ; :
-
-" easy way back to normal mode
-inoremap jj <ESC>
-
-" help keys are annoying
-inoremap <F1> <ESC>
-nnoremap <F1> <ESC>
-vnoremap <F1> <ESC>
-
-" easy split navigation
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
-" all characters except for a-zA-Z0-9_ have a special meaning when searching
-nnoremap / /\v
-vnoremap / /\v
-
 " case-insensitive search, unless you include a capital letter
 set ignorecase
 set smartcase
@@ -153,6 +129,36 @@ set listchars=tab:▸\ ,eol:¬
 " save file on loss of focus
 autocmd FocusLost * :wa
 
+" help keys are annoying
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+
+" easy split navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" all characters except for a-zA-Z0-9_ have a special meaning when searching
+nnoremap / /\v
+vnoremap / /\v
+
+" ; is easier to type than :
+nnoremap ; :
+
+" easy way back to normal mode
+inoremap jj <ESC>
+
+" EasyMotion
+" search forwards
+nmap <space> <leader><leader>f
+" search backwards
+nmap <C-space> <leader><leader>F
+
+" leader key
+let mapleader = ","
+
 " easy editing of vimrc
 nnoremap <leader>vc :sp ~/.vimrc<cr>
 
@@ -162,10 +168,16 @@ nnoremap <leader>a :Ack<space>
 " fugitive
 nnoremap <leader>s :Gstatus<cr>
 
-" ctrlp
-let g:ctrlp_map = '<leader>f'
+" rope
+nnoremap <leader>d :RopeGotoDefinition<cr>
+
+" tagbar
+nnoremap <leader>t :TagbarToggle<cr>
+
 " ctrlp for site-packages
 nnoremap <leader>g :CtrlP $VIRTUAL_ENV/lib/python2.7/site-packages/<cr>
+" ctrlp
+let g:ctrlp_map = '<leader>f'
 " ignore certain files and directories
 set wildignore+=*.pyc
 set wildignore+=*/node_modules/*
@@ -181,12 +193,6 @@ let g:syntastic_warning_symbol='⚠'
 " better line highlighting for errors
 highlight SyntasticErrorLine guibg=#5c0b09
 
-" EasyMotion
-" search forwards
-nmap <space> <leader><leader>f
-" search backwards
-nmap <C-space> <leader><leader>F
-
 " python-mode
 " turn off code folding
 let g:pymode_folding=0
@@ -196,10 +202,4 @@ let g:pymode_syntax_slow_sync=0
 let g:pymode_rope_guess_project=0
 " add projects dir to python path
 let g:pymode_paths = ['~/Projects']
-
-" rope
-nnoremap <leader>d :RopeGotoDefinition<cr>
-
-" tagbar
-nnoremap <leader>t :TagbarToggle<cr>
 

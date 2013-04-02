@@ -1,4 +1,6 @@
 set nocompatible
+" prevent a non-zero exit code by turning filetype on before turning it off
+filetype on
 filetype off
 
 set rtp+=~/.vim/bundle/vundle/
@@ -54,6 +56,15 @@ set shiftround
 
 " ^^ except for HTML, CSS, LESS, and JavaScript
 autocmd FileType html,htmldjango,css,less,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab smarttab shiftround
+
+" trim trailing whitespace on save
+fun! <SID>StripTrailingWhitespaces()
+    let l = line('.')
+    let c = col('.')
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+autocmd FileType python,html,htmldjango,css,less,javascript autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
 " show dir listing when opening file
 set wildmenu
@@ -193,6 +204,8 @@ set wildignore+=*/node_modules/*
 set wildignore+=*/local/static/*
 
 " Syntastic
+" toggle for active linting
+nnoremap <leader>l :SyntasticToggleMode<cr>
 " active mode
 let g:syntastic_check_on_open=1
 " cool symbols to mark errors and warnings

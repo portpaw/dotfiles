@@ -13,6 +13,7 @@ source $ZSH/oh-my-zsh.sh
 # shortcuts
 alias v='mvim'
 alias ll='ls -lah'
+alias gs='git status'
 alias vc='mvim $HOME/.vimrc'
 alias zc='mvim $HOME/.zshrc'
 alias cdp='cd $HOME/Projects'

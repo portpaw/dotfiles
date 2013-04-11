@@ -30,6 +30,9 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'majutsushi/tagbar'
 Bundle 'klen/python-mode'
 Bundle 'ervandew/supertab'
+Bundle 'othree/html5.vim'
+Bundle 'rizzatti/funcoo.vim'
+Bundle 'rizzatti/dash.vim'
 
 " Themes
 Bundle 'tomasr/molokai'
@@ -46,6 +49,9 @@ set guifont=Menlo:h12
 " syntax highlighting
 syntax on
 
+" highlight 400 columns max
+set synmaxcol=400
+
 " tabs are four spaces
 set tabstop=4
 set shiftwidth=4
@@ -55,7 +61,7 @@ set smarttab
 set shiftround
 
 " ^^ except for HTML, CSS, LESS, and JavaScript
-autocmd FileType html,htmldjango,css,less,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab smarttab shiftround
+autocmd FileType html,htmldjango,css,less,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
 " trim trailing whitespace on save
 fun! <SID>StripTrailingWhitespaces()
@@ -147,6 +153,9 @@ set colorcolumn=80
 set list
 set listchars=tab:▸\ ,eol:¬
 
+" highlight conflict markers
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+
 " save file on loss of focus
 autocmd FocusLost * :wa
 
@@ -169,6 +178,12 @@ nnoremap ; :
 
 " easy way back to normal mode
 inoremap jj <esc>
+
+" pdb shortcut
+nnoremap <leader>p oimport pdb; pdb.set_trace()<esc>
+
+" chromelogger shortcut
+nnoremap <leader>c oimport chromelogger as console; console.log()<left>
 
 " EasyMotion
 " search forwards
@@ -196,6 +211,7 @@ nnoremap <leader>t :TagbarToggle<cr>
 
 " ctrlp for site-packages
 nnoremap <leader>g :CtrlP $VIRTUAL_ENV/lib/python2.7/site-packages/<cr>
+
 " ctrlp
 let g:ctrlp_map = '<leader>f'
 " ignore certain files and directories

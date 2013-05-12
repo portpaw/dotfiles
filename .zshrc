@@ -1,5 +1,5 @@
 # ridiculous PATH
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/python:/usr/local/share/npm/bin:/usr/bin:/usr/sbin:/bin:/sbin
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/python:/usr/local/share/npm/bin:/usr/bin:/usr/sbin:/bin:/sbin:~/.scripts
 
 # ohmyzsh settings
 ZSH=$HOME/.oh-my-zsh

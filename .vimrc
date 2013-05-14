@@ -1,4 +1,5 @@
 set nocompatible
+
 " prevent a non-zero exit code by turning filetype on before turning it off
 filetype on
 filetype off
@@ -162,6 +163,9 @@ autocmd FocusLost * :wa
 " Source the vimrc file after saving it
 autocmd bufwritepost .vimrc source $MYVIMRC
 
+" leader key
+let mapleader = ','
+
 " help keys are annoying
 inoremap <F1> <esc>
 nnoremap <F1> <esc>
@@ -179,20 +183,18 @@ nnoremap ; :
 " easy way back to normal mode
 inoremap jj <esc>
 
-" pdb shortcut
-nnoremap <leader>p oimport pdb; pdb.set_trace()<esc>
-
-" chromelogger shortcut
-nnoremap <leader>c oimport chromelogger as console; console.log()<left>
-
 " EasyMotion
 " search forwards
 nmap <space> <leader><leader>f
 " search backwards
 nmap <C-space> <leader><leader>F
 
-" leader key
-let mapleader = ','
+" pdb shortcut
+nnoremap <leader>p oimport pdb; pdb.set_trace()<esc>
+
+" console.log/chromelogger shortcuts
+nnoremap <leader>c oconsole.log()<left>
+nnoremap <leader>cl oimport chromelogger as console; console.log()<left>
 
 " easy editing of vimrc
 nnoremap <leader>vc :sp ~/.vimrc<cr>

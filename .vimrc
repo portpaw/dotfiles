@@ -34,6 +34,7 @@ Bundle 'ervandew/supertab'
 Bundle 'othree/html5.vim'
 Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
+Bundle 'marijnh/tern_for_vim'
 
 " Themes
 Bundle 'tomasr/molokai'

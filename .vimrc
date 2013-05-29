@@ -1,4 +1,3 @@
-" testing online editing
 set nocompatible
 
 " prevent a non-zero exit code by turning filetype on before turning it off

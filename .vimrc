@@ -215,6 +215,8 @@ let g:ctrlp_map = '<leader>f'
 set wildignore+=*.pyc
 set wildignore+=*/node_modules/*
 set wildignore+=*/local/static/*
+set wildignore+=*/locale/*
+set wildignore+=*/extra/static/migration/*
 
 " Syntastic
 " toggle for active linting

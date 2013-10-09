@@ -11,7 +11,7 @@ Bundle 'gmarik/vundle'
 
 " Plugins
 Bundle 'tpope/vim-fugitive'
-Bundle 'mattn/zencoding-vim'
+Bundle 'mattn/emmet-vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'Lokaltog/vim-easymotion'
@@ -29,6 +29,7 @@ Bundle 'digitaltoad/vim-jade'
 Bundle 'klen/python-mode'
 Bundle 'othree/html5.vim'
 Bundle 'pangloss/vim-javascript'
+Bundle 'scrooloose/syntastic'
 
 " Themes
 Bundle 'tomasr/molokai'

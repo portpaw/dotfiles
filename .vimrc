@@ -188,7 +188,7 @@ nmap <C-space> <leader><leader>F
 nnoremap <leader>p oimport pdb; pdb.set_trace()<esc>
 
 " console.log/chromelogger shortcuts
-nnoremap <leader>c oconsole.log()<left>
+nnoremap <leader>c oconsole.log();<left><left>
 nnoremap <leader>cl oimport chromelogger as console; console.log()<left>
 
 " easy editing of vimrc

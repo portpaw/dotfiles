@@ -29,3 +29,10 @@ export PAGER='less -R'
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENV_USE_DISTRIBUTE=1
 [[ -n '$(command -v virtualenvwrapper.sh)' ]] && source virtualenvwrapper.sh
+
+# base64-encode files
+encode() {
+  local mime=`file --mime-type $1 | cut -d\: -f2- | cut -d\  -f2`
+  local b64=`openssl base64 < $1 | tr -d '\n'`
+  echo 'data:'$mime';base64,'$b64 | pbcopy
+}

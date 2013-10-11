@@ -192,6 +192,9 @@ nnoremap <leader>p oimport pdb; pdb.set_trace()<esc>
 nnoremap <leader>c oconsole.log();<left><left>
 nnoremap <leader>cl oimport chromelogger as console; console.log()<left>
 
+" amd module shortcut
+nnoremap <leader>am idefine([<cr><cr>],function (<cr><cr>) {<cr><cr>});<up><up><up><up><up><tab>
+
 " easy editing of vimrc
 nnoremap <leader>vc :sp ~/.vimrc<cr>
 

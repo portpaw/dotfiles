@@ -10,17 +10,13 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " Plugins
-Bundle 'tpope/vim-fugitive'
-Bundle 'mattn/emmet-vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'majutsushi/tagbar'
 Bundle 'airblade/vim-gitgutter'
-Bundle 'msanders/snipmate.vim'
 Bundle 'mileszs/ack.vim'
-Bundle 'skammer/vim-css-color'
 Bundle 'tomtom/tcomment_vim'
+Bundle 'skammer/vim-css-color'
 Bundle 'groenewege/vim-less'
 Bundle 'tpope/vim-markdown'
 Bundle 'juvenn/mustache.vim'
@@ -186,14 +182,14 @@ nmap <space> <leader><leader>f
 nmap <C-space> <leader><leader>F
 
 " pdb shortcut
-nnoremap <leader>p oimport pdb; pdb.set_trace()<esc>
+nnoremap <leader>pd oimport pdb; pdb.set_trace()<esc>
 
 " console.log/chromelogger shortcuts
-nnoremap <leader>c oconsole.log();<left><left>
-nnoremap <leader>cl oimport chromelogger as console; console.log()<left>
+nnoremap <leader>cl oconsole.log();<left><left>
+nnoremap <leader>ch oimport chromelogger as console; console.log()<left>
 
 " amd module shortcut
-nnoremap <leader>am idefine([<cr><cr>],function (<cr><cr>) {<cr><cr>});<up><up><up><up><up><tab>
+nnoremap <leader>m idefine([<cr><cr>],function (<cr><cr>) {<cr><cr>});<up><up><up><up><up><tab>
 
 " easy editing of vimrc
 nnoremap <leader>vc :sp ~/.vimrc<cr>
@@ -201,14 +197,8 @@ nnoremap <leader>vc :sp ~/.vimrc<cr>
 " ack.vim
 nnoremap <leader>a :Ack<space>
 
-" fugitive
-nnoremap <leader>s :Gstatus<cr>
-
 " rope
 nnoremap <leader>d :RopeGotoDefinition<cr>
-
-" tagbar
-nnoremap <leader>t :TagbarToggle<cr>
 
 " ctrlp for site-packages
 nnoremap <leader>g :CtrlP $VIRTUAL_ENV/lib/python2.7/site-packages/<cr>
@@ -231,6 +221,7 @@ let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
+let g:syntastic_html_checkers=[]
 " better line highlighting for errors
 highlight SyntasticErrorLine guibg=#5c0b09
 

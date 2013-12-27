@@ -15,13 +15,11 @@ alias v='mvim'
 alias ll='ls -lah'
 alias gdc='git dc'
 alias gs='git status'
+alias grh='git reset --hard'
 alias vc='mvim $HOME/.vimrc'
 alias zc='mvim $HOME/.zshrc'
 alias cdp='cd $HOME/Projects'
-alias cddot='cd $HOME/Projects/dotfiles'
 alias cdbb='cd $HOME/Projects/bitbucket'
-alias cdboom='cd $HOME/Projects/boomtown'
-
 # default pager
 export PAGER='less -R'
 
@@ -29,6 +27,18 @@ export PAGER='less -R'
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENV_USE_DISTRIBUTE=1
 [[ -n '$(command -v virtualenvwrapper.sh)' ]] && source virtualenvwrapper.sh
+
+# check out all branches locally
+gcoa() {
+    if [[ $1 = '' ]]; then
+        local remote='origin'
+    else
+        local remote=$1
+    fi
+    local branches="$(git branch -r | grep $remote | grep -v master | grep -v HEAD | awk '{gsub(/'$remote'\//, "", $1); print $1}')"
+    branches=("${(f)branches}")
+    for branch in $branches; do git checkout $branch; done
+}
 
 # base64-encode files
 encode() {

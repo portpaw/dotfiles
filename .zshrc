@@ -20,6 +20,8 @@ alias vc='mvim $HOME/.vimrc'
 alias zc='mvim $HOME/.zshrc'
 alias cdp='cd $HOME/Projects'
 alias cdbb='cd $HOME/Projects/bitbucket'
+alias bower='noglob bower'
+
 # default pager
 export PAGER='less -R'
 

@@ -11,6 +11,7 @@ Bundle 'gmarik/vundle'
 
 " Plugins
 Bundle 'kien/ctrlp.vim'
+Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'airblade/vim-gitgutter'
@@ -25,7 +26,10 @@ Bundle 'digitaltoad/vim-jade'
 Bundle 'klen/python-mode'
 Bundle 'othree/html5.vim'
 Bundle 'pangloss/vim-javascript'
+Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
+Bundle 'marijnh/tern_for_vim'
+Bundle 'lepture/vim-jinja'
 
 " Themes
 Bundle 'tomasr/molokai'
@@ -37,7 +41,7 @@ set modelines=0
 
 " Theme settings
 colorscheme molokai
-set guifont=Menlo:h12
+set guifont=Menlo:h16
 
 " syntax highlighting
 syntax on
@@ -54,7 +58,7 @@ set smarttab
 set shiftround
 
 " ^^ except for HTML, CSS, LESS, and JavaScript
-autocmd FileType html,htmldjango,css,less,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType html,htmldjango,jinja,css,less,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
 " trim trailing whitespace on save
 fun! <SID>StripTrailingWhitespaces()
@@ -189,16 +193,13 @@ nnoremap <leader>cl oconsole.log();<left><left>
 nnoremap <leader>ch oimport chromelogger as console; console.log()<left>
 
 " amd module shortcut
-nnoremap <leader>m idefine([<cr><cr>],function (<cr><cr>) {<cr><cr>});<up><up><up><up><up><tab>
+nnoremap <leader>m idefine([<cr><cr>], function (<cr><cr>) {<cr><cr>});<up><up><up><up><up><tab>
 
 " easy editing of vimrc
 nnoremap <leader>vc :sp ~/.vimrc<cr>
 
 " ack.vim
 nnoremap <leader>a :Ack<space>
-
-" rope
-nnoremap <leader>d :RopeGotoDefinition<cr>
 
 " ctrlp for site-packages
 nnoremap <leader>g :CtrlP $VIRTUAL_ENV/lib/python2.7/site-packages/<cr>
@@ -234,4 +235,13 @@ let g:pymode_syntax_slow_sync=0
 let g:pymode_rope_guess_project=0
 " add projects dir to python path
 let g:pymode_paths=['~/Projects']
+" goto definition shortcut
+let g:pymode_rope_goto_definition_bind = '<leader>d'
 
+" tern
+nnoremap <leader>s :TernDef<cr>
+nnoremap <leader>r :TernRefs<cr>
+
+" NERDTree
+nnoremap <leader>t :NERDTreeToggle<cr>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif

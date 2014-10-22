@@ -1,5 +1,5 @@
 # ridiculous PATH
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/python:/usr/local/share/npm/bin:/usr/bin:/usr/sbin:/bin:/sbin:~/.scripts
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:/usr/bin:/usr/sbin:/bin:/sbin:~/.scripts
 
 # ohmyzsh settings
 ZSH=$HOME/.oh-my-zsh
@@ -29,6 +29,10 @@ export PAGER='less -R'
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENV_USE_DISTRIBUTE=1
 [[ -n '$(command -v virtualenvwrapper.sh)' ]] && source virtualenvwrapper.sh
+
+# clang settings to avoid stupid compiler errors
+export CFLAGS=-Qunused-arguments
+export CPPFLAGS=-Qunused-arguments
 
 # check out all branches locally
 gcoa() {

@@ -1,12 +1,14 @@
-# ridiculous PATH
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:/usr/bin:/usr/sbin:/bin:/sbin:~/.scripts
+# ridiculous PATHs
+export PATH=~/.scripts:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
+export MANPATH=/usr/local/man:$MANPATH
 
 # ohmyzsh settings
-ZSH=$HOME/.oh-my-zsh
-ZSH_THEME='robbyrussell'
+export ZSH=$HOME/.oh-my-zsh
+export ZSH_THEME='robbyrussell'
+export UPDATE_ZSH_DAYS=7
 
 # ohmyzsh plugins
-plugins=(osx brew sublime git mercurial python pip virtualenvwrapper django npm)
+plugins=(bower brew colorize common-aliases copydir copyfile django encode64 extract fabric git github mercurial npm osx python pip virtualenvwrapper)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -22,6 +24,13 @@ alias cdp='cd $HOME/Projects'
 alias cdbb='cd $HOME/Projects/bitbucket'
 alias bower='noglob bower'
 
+# default editor
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='mvim'
+fi
+
 # default pager
 export PAGER='less -R'
 
@@ -30,7 +39,7 @@ export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENV_USE_DISTRIBUTE=1
 [[ -n '$(command -v virtualenvwrapper.sh)' ]] && source virtualenvwrapper.sh
 
-# clang settings to avoid stupid compiler errors
+# C compiler flags
 export CFLAGS=-Qunused-arguments
 export CPPFLAGS=-Qunused-arguments
 
@@ -44,11 +53,4 @@ gcoa() {
     local branches="$(git branch -r | grep $remote | grep -v master | grep -v HEAD | awk '{gsub(/'$remote'\//, "", $1); print $1}')"
     branches=("${(f)branches}")
     for branch in $branches; do git checkout $branch; done
-}
-
-# base64-encode files
-encode() {
-  local mime=`file --mime-type $1 | cut -d\: -f2- | cut -d\  -f2`
-  local b64=`openssl base64 < $1 | tr -d '\n'`
-  echo 'data:'$mime';base64,'$b64 | pbcopy
 }

@@ -23,13 +23,14 @@ Bundle 'tpope/vim-markdown'
 Bundle 'juvenn/mustache.vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'digitaltoad/vim-jade'
-Bundle 'klen/python-mode'
 Bundle 'othree/html5.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'marijnh/tern_for_vim'
 Bundle 'lepture/vim-jinja'
+Bundle 'mxw/vim-jsx'
+Bundle 'valloric/youcompleteme'
 
 " Themes
 Bundle 'tomasr/molokai'
@@ -211,32 +212,9 @@ set wildignore+=*.pyc
 set wildignore+=*/node_modules/*
 set wildignore+=*/local/static/*
 set wildignore+=*/locale/*
-set wildignore+=*/extra/static/migration/*
 
-" Syntastic
-" toggle for active linting
-nnoremap <leader>l :SyntasticToggleMode<cr>
-" active mode
-let g:syntastic_check_on_open=1
-" cool symbols to mark errors and warnings
-let g:syntastic_enable_signs=1
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-let g:syntastic_html_checkers=[]
-" better line highlighting for errors
-highlight SyntasticErrorLine guibg=#5c0b09
-
-" python-mode
-" turn off code folding
-let g:pymode_folding=0
-" for fast machines
-let g:pymode_syntax_slow_sync=0
-" don't let rope recursively search dirs for .ropeproject
-let g:pymode_rope_guess_project=0
-" add projects dir to python path
-let g:pymode_paths=['~/Projects']
-" goto definition shortcut
-let g:pymode_rope_goto_definition_bind = '<leader>d'
+" YouCompleteMe
+nnoremap <leader>d :YcmCompleter GoTo<cr>
 
 " tern
 nnoremap <leader>s :TernDef<cr>
@@ -245,3 +223,5 @@ nnoremap <leader>r :TernRefs<cr>
 " NERDTree
 nnoremap <leader>t :NERDTreeToggle<cr>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" Syntastic
+let g:syntastic_javascript_checkers = ['jsxhint']

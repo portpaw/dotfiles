@@ -1,5 +1,5 @@
 # ridiculous PATH
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/python:/usr/local/share/npm/bin:/usr/bin:/usr/sbin:/bin:/sbin:~/.scripts
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:/usr/bin:/usr/sbin:/bin:/sbin:~/.bin
 
 # ohmyzsh settings
 ZSH=$HOME/.oh-my-zsh
@@ -30,6 +30,14 @@ export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENV_USE_DISTRIBUTE=1
 [[ -n '$(command -v virtualenvwrapper.sh)' ]] && source virtualenvwrapper.sh
 
+# python
+export PYTHONDONTWRITEBYTECODE=1
+export PIP_DOWNLOAD_CACHE=$HOME/.pip_download_cache
+
+# clang
+export CFLAGS=-Qunused-arguments
+export CPPFLAGS=-Qunused-arguments
+
 # check out all branches locally
 gcoa() {
     if [[ $1 = '' ]]; then
@@ -48,3 +56,7 @@ encode() {
   local b64=`openssl base64 < $1 | tr -d '\n'`
   echo 'data:'$mime';base64,'$b64 | pbcopy
 }
+
+# java
+export MAVEN_OPTS='-Xmx1024m -XX:MaxPermSize=128m'
+export JAVA_HOME=$(/usr/libexec/java_home)

@@ -13,6 +13,7 @@ Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-repeat'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'mileszs/ack.vim'
@@ -59,7 +60,7 @@ set smarttab
 set shiftround
 
 " ^^ except for HTML, CSS, LESS, and JavaScript
-autocmd FileType html,htmldjango,jinja,css,less,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
+" autocmd FileType html,htmldjango,jinja,css,less,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
 " trim trailing whitespace on save
 fun! <SID>StripTrailingWhitespaces()
@@ -115,9 +116,6 @@ set hidden
 " don't back up to the pwd
 set backupdir=/tmp
 set directory=/tmp
-
-" ^^ except for undo history files
-set undofile
 
 " lots of history
 set history=1000

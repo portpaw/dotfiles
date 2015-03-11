@@ -34,6 +34,10 @@ export VIRTUALENV_USE_DISTRIBUTE=1
 export PYTHONDONTWRITEBYTECODE=1
 export PIP_DOWNLOAD_CACHE=$HOME/.pip_download_cache
 
+# java
+export MAVEN_OPTS='-Xmx1024m -XX:MaxPermSize=128m'
+export JAVA_HOME=$(/usr/libexec/java_home)
+
 # clang
 export CFLAGS=-Qunused-arguments
 export CPPFLAGS=-Qunused-arguments
@@ -56,7 +60,3 @@ encode() {
   local b64=`openssl base64 < $1 | tr -d '\n'`
   echo 'data:'$mime';base64,'$b64 | pbcopy
 }
-
-# java
-export MAVEN_OPTS='-Xmx1024m -XX:MaxPermSize=128m'
-export JAVA_HOME=$(/usr/libexec/java_home)

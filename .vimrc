@@ -1,47 +1,53 @@
-set nocompatible
+" skip initialization for vim-tiny or vim-small
+if !1 | finish | endif
 
-" prevent a non-zero exit code by turning filetype on before turning it off
-filetype on
-filetype off
+if has('vim_starting')
+    set nocompatible
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call neobundle#begin(expand('~/.vim/bundle/'))
 
-Bundle 'gmarik/vundle'
+" NeoBundle itself
+NeoBundleFetch 'Shougo/neobundle.vim'
 
-" Plugins
-Bundle 'kien/ctrlp.vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-repeat'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'mileszs/ack.vim'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'skammer/vim-css-color'
-Bundle 'groenewege/vim-less'
-Bundle 'tpope/vim-markdown'
-Bundle 'juvenn/mustache.vim'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'othree/html5.vim'
-Bundle 'pangloss/vim-javascript'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
-Bundle 'marijnh/tern_for_vim'
-Bundle 'lepture/vim-jinja'
-Bundle 'mxw/vim-jsx'
-Bundle 'valloric/youcompleteme'
+" plugins
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-repeat'
+NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'mileszs/ack.vim'
+NeoBundle 'tomtom/tcomment_vim'
+NeoBundle 'skammer/vim-css-color'
+NeoBundle 'groenewege/vim-less'
+NeoBundle 'tpope/vim-markdown'
+NeoBundle 'juvenn/mustache.vim'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'digitaltoad/vim-jade'
+NeoBundle 'klen/python-mode'
+NeoBundle 'othree/html5.vim'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'marijnh/tern_for_vim'
+NeoBundle 'lepture/vim-jinja'
 
-" Themes
-Bundle 'tomasr/molokai'
+" themes
+NeoBundle 'tomasr/molokai'
+
+call neobundle#end()
 
 filetype plugin indent on
+
+" check for plugin updates
+NeoBundleCheck
 
 " disable modelines for security
 set modelines=0
 
-" Theme settings
+" theme settings
 colorscheme molokai
 set guifont=Menlo:h16
 
@@ -182,7 +188,7 @@ inoremap jj <esc>
 " search forwards
 nmap <space> <leader><leader>f
 " search backwards
-nmap <C-space> <leader><leader>F
+nmap <S-space> <leader><leader>F
 
 " pdb shortcut
 nnoremap <leader>pd oimport pdb; pdb.set_trace()<esc>
@@ -194,8 +200,9 @@ nnoremap <leader>ch oimport chromelogger as console; console.log()<left>
 " amd module shortcut
 nnoremap <leader>m idefine([<cr><cr>], function (<cr><cr>) {<cr><cr>});<up><up><up><up><up><tab>
 
-" easy editing of vimrc
+" easy editing of vimrc and zshrc
 nnoremap <leader>vc :sp ~/.vimrc<cr>
+nnoremap <leader>zc :sp ~/.zshrc<cr>
 
 " ack.vim
 nnoremap <leader>a :Ack<space>

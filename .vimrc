@@ -32,6 +32,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'marijnh/tern_for_vim'
 NeoBundle 'lepture/vim-jinja'
+NeoBundle 'mxw/vim-jsx'
 
 " themes
 NeoBundle 'tomasr/molokai'
@@ -253,3 +254,5 @@ nnoremap <leader>r :TernRefs<cr>
 " NERDTree
 nnoremap <leader>t :NERDTreeToggle<cr>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+let g:syntastic_javascript_checkers = ['jsxhint']

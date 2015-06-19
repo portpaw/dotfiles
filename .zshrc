@@ -61,3 +61,4 @@ gcoa() {
     branches=("${(f)branches}")
     for branch in $branches; do git checkout $branch; done
 }
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

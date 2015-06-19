@@ -3,47 +3,40 @@ if !1 | finish | endif
 
 if has('vim_starting')
     set nocompatible
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-call neobundle#begin(expand('~/.vim/bundle/'))
-
-" NeoBundle itself
-NeoBundleFetch 'Shougo/neobundle.vim'
+call plug#begin('~/.vim/plugged')
 
 " plugins
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'mileszs/ack.vim'
-NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'skammer/vim-css-color'
-NeoBundle 'groenewege/vim-less'
-NeoBundle 'tpope/vim-markdown'
-NeoBundle 'juvenn/mustache.vim'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'digitaltoad/vim-jade'
-NeoBundle 'klen/python-mode'
-NeoBundle 'othree/html5.vim'
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'marijnh/tern_for_vim'
-NeoBundle 'lepture/vim-jinja'
-NeoBundle 'mxw/vim-jsx'
+Plug 'kien/ctrlp.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'airblade/vim-gitgutter'
+Plug 'mileszs/ack.vim'
+Plug 'tomtom/tcomment_vim'
+Plug 'skammer/vim-css-color'
+Plug 'groenewege/vim-less'
+Plug 'tpope/vim-markdown'
+Plug 'juvenn/mustache.vim'
+Plug 'kchmck/vim-coffee-script'
+Plug 'digitaltoad/vim-jade'
+Plug 'othree/html5.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
+Plug 'lepture/vim-jinja'
+Plug 'mxw/vim-jsx'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
 
 " themes
-NeoBundle 'tomasr/molokai'
+Plug 'tomasr/molokai'
 
-call neobundle#end()
+call plug#end()
 
 filetype plugin indent on
-
-" check for plugin updates
-NeoBundleCheck
 
 " disable modelines for security
 set modelines=0
@@ -67,7 +60,7 @@ set smarttab
 set shiftround
 
 " ^^ except for HTML, CSS, LESS, and JavaScript
-" autocmd FileType html,htmldjango,jinja,css,less,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType html,htmldjango,jinja,css,less,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
 " trim trailing whitespace on save
 fun! <SID>StripTrailingWhitespaces()
@@ -120,13 +113,14 @@ set backspace=indent,eol,start
 " hide buffers instead of closing them
 set hidden
 
-" don't back up to the pwd
-set backupdir=/tmp
-set directory=/tmp
+set backup
+set noswapfile
+set undofile
+set undoreload=10000
 
-" lots of history
-set history=1000
-set undolevels=1000
+set undodir=~/.vim/tmp/undo/
+set backupdir=~/.vim/tmp/backup/
+set directory=~/.vim/tmp/swap/
 
 " all characters except for a-zA-Z0-9_ have a special meaning when searching
 nnoremap / /\v
@@ -213,6 +207,15 @@ nnoremap <leader>g :CtrlP $VIRTUAL_ENV/lib/python2.7/site-packages/<cr>
 
 " ctrlp
 let g:ctrlp_map = '<leader>f'
+let g:ctrlp_use_caching = 0
+
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+  let g:ackprg = 'ag --nogroup --nocolor --column'
+endif
+
 " ignore certain files and directories
 set wildignore+=*.pyc
 set wildignore+=*/node_modules/*
@@ -231,4 +234,12 @@ nnoremap <leader>t :NERDTreeToggle<cr>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " Syntastic
-let g:syntastic_javascript_checkers = ['jsxhint']
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']

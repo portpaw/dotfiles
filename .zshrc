@@ -22,6 +22,7 @@ alias zc='mvim $HOME/.zshrc'
 alias cdp='cd $HOME/Projects'
 alias cdbb='cd $HOME/Projects/bitbucket && workon bitbucket'
 alias bower='noglob bower'
+alias rm='rm -i'
 
 # default editor
 if [[ -n $SSH_CONNECTION ]]; then

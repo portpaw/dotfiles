@@ -30,6 +30,7 @@ Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
 Plug 'lepture/vim-jinja'
 Plug 'mxw/vim-jsx'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
+Plug 'klen/python-mode'
 
 " themes
 Plug 'tomasr/molokai'
@@ -226,6 +227,7 @@ set wildignore+=*/locale/*
 nnoremap <leader>d :YcmCompleter GoTo<cr>
 
 " tern
+autocmd FileType javascript setlocal omnifunc=tern#Complete
 nnoremap <leader>s :TernDef<cr>
 nnoremap <leader>r :TernRefs<cr>
 
@@ -243,3 +245,15 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_ignore_files = ['\.py$']
+
+" fold based on indent
+set foldmethod=indent
+" deepest fold is 10 levels
+set foldnestmax=10
+"dont fold by default
+set nofoldenable
+set foldlevel=1
+
+" status line
+set laststatus=2

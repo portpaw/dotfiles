@@ -20,8 +20,6 @@ Plug 'skammer/vim-css-color'
 Plug 'groenewege/vim-less'
 Plug 'tpope/vim-markdown'
 Plug 'juvenn/mustache.vim'
-Plug 'kchmck/vim-coffee-script'
-Plug 'digitaltoad/vim-jade'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'scrooloose/nerdtree'
@@ -30,7 +28,7 @@ Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
 Plug 'lepture/vim-jinja'
 Plug 'mxw/vim-jsx'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
-Plug 'klen/python-mode'
+Plug 'itchyny/lightline.vim'
 
 " themes
 Plug 'tomasr/molokai'
@@ -151,6 +149,17 @@ set colorcolumn=80
 set list
 set listchars=tab:▸\ ,eol:¬
 
+" fold based on indent
+set foldmethod=indent
+" deepest fold is 10 levels
+set foldnestmax=10
+"dont fold by default
+set nofoldenable
+set foldlevel=1
+
+" status line
+set laststatus=2
+
 " highlight conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
@@ -239,21 +248,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_ignore_files = ['\.py$']
-
-" fold based on indent
-set foldmethod=indent
-" deepest fold is 10 levels
-set foldnestmax=10
-"dont fold by default
-set nofoldenable
-set foldlevel=1
-
-" status line
-set laststatus=2

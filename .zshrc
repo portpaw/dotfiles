@@ -7,13 +7,12 @@ export ZSH_THEME='robbyrussell'
 export UPDATE_ZSH_DAYS=7
 
 # ohmyzsh plugins
-plugins=(bower brew colorize common-aliases copydir copyfile django encode64 extract fabric git github mercurial npm osx python pip virtualenvwrapper)
+plugins=(bower brew common-aliases fabric git mercurial npm nyan osx pip python sudo vagrant virtualenvwrapper web-search)
 
 source $ZSH/oh-my-zsh.sh
 
 # shortcuts
 alias v='mvim'
-alias ll='ls -lah'
 alias gdc='git dc'
 alias gs='git status'
 alias grh='git reset --hard'

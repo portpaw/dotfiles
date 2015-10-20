@@ -60,4 +60,40 @@ gcoa() {
     branches=("${(f)branches}")
     for branch in $branches; do git checkout $branch; done
 }
+
+testbb() {
+    local host='dev.bitbucket.org:8000'
+
+    while [[ $# > 1 ]] do
+        local key="$1"
+
+        case $key in
+            -h)
+                host="$2"
+                shift # past argument
+            ;;
+        esac
+
+        shift # past argument or value
+    done
+
+    if [[ $host = 'dev.bitbucket.org:8000' ]]; then
+        local protocol='http'
+        local ssh_host='localhost'
+    else
+        local protocol='https'
+        local ssh_host=$host
+    fi
+
+    if [[ $1 = '' ]]; then
+        local tests='tests/selenium'
+    else
+        local tests=$1
+    fi
+
+    TEST_BASE_URL=$protocol'://'$host TEST_GIT_URL=$protocol'://'$host TEST_HG_URL=$protocol'://'$host TEST_SSH_URL=$ssh_host TEST_FIREFOX_BINARY=/Applications/Firefox.app/Contents/MacOS/firefox-bin nosetests --nocapture $tests
+}
+
+
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

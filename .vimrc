@@ -29,6 +29,7 @@ Plug 'lepture/vim-jinja'
 Plug 'mxw/vim-jsx'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
 Plug 'itchyny/lightline.vim'
+Plug 'terryma/vim-multiple-cursors'
 
 " themes
 Plug 'tomasr/molokai'

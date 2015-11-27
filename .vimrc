@@ -8,7 +8,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " plugins
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -29,6 +29,7 @@ Plug 'lepture/vim-jinja'
 Plug 'mxw/vim-jsx'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
 Plug 'itchyny/lightline.vim'
+Plug 'terryma/vim-multiple-cursors'
 
 " themes
 Plug 'tomasr/molokai'
@@ -60,6 +61,7 @@ set shiftround
 
 " ^^ except for HTML, CSS, LESS, and JavaScript
 autocmd FileType html,htmldjango,jinja,css,less,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd BufNewFile,BufRead .eslintrc setlocal filetype=json
 
 " trim trailing whitespace on save
 fun! <SID>StripTrailingWhitespaces()
@@ -229,8 +231,9 @@ endif
 " ignore certain files and directories
 set wildignore+=*.pyc
 set wildignore+=*/node_modules/*
-set wildignore+=*/local/static/*
+set wildignore+=*/local/*
 set wildignore+=*/locale/*
+set wildignore+=/Users/jmooring/Projects/bitbucket-issues/lib/*
 
 " YouCompleteMe
 nnoremap <leader>d :YcmCompleter GoTo<cr>
@@ -253,3 +256,6 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
+
+" vim-jsx
+let g:jsx_ext_required = 0

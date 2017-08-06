@@ -30,6 +30,9 @@ Plug 'mxw/vim-jsx'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
 Plug 'itchyny/lightline.vim'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'digitaltoad/vim-pug'
+Plug 'mtscout6/syntastic-local-eslint.vim'
 
 " themes
 Plug 'tomasr/molokai'

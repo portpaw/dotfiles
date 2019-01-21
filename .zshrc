@@ -1,22 +1,28 @@
-export PATH=~/.bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
+# path modifications
+export PATH=$HOME/.bin:/usr/local/bin:$PATH
 export MANPATH=/usr/local/man:$MANPATH
 
-# ohmyzsh settings
+# default pager
+export PAGER='less -R'
+
+# ohmyzsh
 export ZSH=$HOME/.oh-my-zsh
-export ZSH_THEME='robbyrussell'
-export UPDATE_ZSH_DAYS=7
-
-# ohmyzsh plugins
-plugins=(brew common-aliases git mercurial npm osx sudo)
-
+export ZSH_THEME='agnoster'
+plugins=(
+  common-aliases
+  docker
+  encode64
+  git
+  httpie
+  npm
+  osx
+  vscode
+  yarn
+)
 source $ZSH/oh-my-zsh.sh
 
-# shortcuts
-alias a='atom'
-alias zc='atom $HOME/.zshrc'
-alias gdc='git dc'
-alias gs='git status'
-alias grh='git reset --hard'
+# command aliases
+alias c='code'
 alias cdp='cd $HOME/Projects'
 alias rm='rm -i'
 
@@ -24,13 +30,8 @@ alias rm='rm -i'
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='atom'
+  export EDITOR='code'
 fi
-
-# default pager
-export PAGER='less -R'
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # nvm
 export NVM_DIR="/Users/jon/.nvm"

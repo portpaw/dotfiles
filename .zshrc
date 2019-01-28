@@ -9,6 +9,9 @@ export PAGER='less -R'
 alias c='code'
 alias cdp='cd $HOME/Projects'
 alias rm='rm -i'
+alias v='mvim'
+alias vc='v $HOME/.vimrc'
+alias zc='c $HOME/.zshrc'
 
 # default editor
 if [[ -n $SSH_CONNECTION ]]; then
@@ -34,8 +37,9 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # nvm
-export NVM_DIR="/Users/jon/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 autoload -U add-zsh-hook
 load-nvmrc() {
   local node_version="$(nvm version)"

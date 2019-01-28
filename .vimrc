@@ -46,7 +46,7 @@ set modelines=0
 
 " theme settings
 colorscheme molokai
-set guifont=Menlo:h16
+set guifont=Source\ Code\ Pro\ for\ Powerline:h18
 
 " syntax highlighting
 syntax on

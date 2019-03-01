@@ -8,6 +8,7 @@ export PAGER='less -R'
 # command aliases
 alias c='code'
 alias cdp='cd $HOME/Projects'
+alias cdt='cd $HOME/Projects/trello'
 alias rm='rm -i'
 alias v='mvim'
 alias vc='v $HOME/.vimrc'
@@ -60,3 +61,4 @@ load-nvmrc() {
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

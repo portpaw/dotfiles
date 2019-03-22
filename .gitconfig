@@ -6,7 +6,9 @@
   quotepath = false
   editor = code -w
 [alias]
+  fe = fetch
   ci = commit
+  cane = commit --amend --no-edit
   dc = diff --cached
   df = diff
   head = show HEAD
@@ -15,6 +17,8 @@
   sglog = log --decorate --graph --all --pretty=oneline
   st = status
   rh = reset --hard
+  ri = rebase --interactive
+  rom = rebase origin/master
 [color]
   ui = auto
 [push]

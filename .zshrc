@@ -37,6 +37,10 @@ plugins=(
   zsh-autosuggestions
 )
 source $ZSH/oh-my-zsh.sh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
@@ -62,7 +66,3 @@ load-nvmrc() {
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# syntax highlighting
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

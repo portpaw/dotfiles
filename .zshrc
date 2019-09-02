@@ -1,5 +1,5 @@
 # path modifications
-export PATH=$HOME/.bin:/usr/local/bin:$PATH
+export PATH=$HOME/.bin:$HOME/Library/Android/sdk:$HOME/Library/Android/sdk/platform-tools:/usr/local/bin:$PATH
 export MANPATH=/usr/local/man:$MANPATH
 
 # default pager

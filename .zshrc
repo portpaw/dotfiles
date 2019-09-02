@@ -12,6 +12,7 @@ alias rm='rm -i'
 alias v='mvim'
 alias vc='v $HOME/.vimrc'
 alias zc='c $HOME/.zshrc'
+alias rand='openssl rand -base64'
 
 # default editor
 if [[ -n $SSH_CONNECTION ]]; then

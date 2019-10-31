@@ -1,5 +1,5 @@
 # path modifications
-export PATH=$HOME/.bin:/usr/local/bin:$PATH
+export PATH=$HOME/.bin:$HOME/Library/Android/sdk:$HOME/Library/Android/sdk/platform-tools:/usr/local/bin:$PATH
 export MANPATH=/usr/local/man:$MANPATH
 
 # default pager
@@ -13,6 +13,7 @@ alias rm='rm -i'
 alias v='mvim'
 alias vc='v $HOME/.vimrc'
 alias zc='c $HOME/.zshrc'
+alias rand='openssl rand -base64'
 
 # default editor
 if [[ -n $SSH_CONNECTION ]]; then
@@ -37,6 +38,10 @@ plugins=(
   zsh-autosuggestions
 )
 source $ZSH/oh-my-zsh.sh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # nvm
 export NVM_DIR="$HOME/.nvm"

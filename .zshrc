@@ -62,6 +62,12 @@ load-nvmrc() {
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
+
+# yvm
+export YVM_DIR=/usr/local/opt/yvm
+[ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh
+
+# fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # syntax highlighting

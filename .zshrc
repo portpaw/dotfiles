@@ -8,6 +8,7 @@ export PAGER='less -R'
 # command aliases
 alias c='code'
 alias cdp='cd $HOME/Projects'
+alias gfrom='g fetch && g rom'
 alias rm='rm -i'
 alias v='mvim'
 alias vc='v $HOME/.vimrc'

@@ -1,0 +1,42 @@
+[user]
+  name = Jon Mooring
+  # email = jmooring@atlassian.com
+  email = jonmooring@gmail.com
+  signingkey = 5659FA7307C70BBD
+[core]
+  excludesfile = $HOME/.gitignore_global
+  quotepath = false
+  editor = code -w
+[alias]
+  fe = fetch
+  ci = commit
+  ca = commit --amend
+  cane = commit --amend --no-edit
+  dc = diff --cached
+  df = diff
+  head = show HEAD
+  glog = log --decorate --graph --all
+  slog = log --pretty=oneline
+  sglog = log --decorate --graph --all --pretty=oneline
+  st = status
+  rh = reset --hard
+  ra = rebase --abort
+  rc = rebase --continue
+  ri = rebase --interactive
+  cp = cherry-pick
+  cpa = cherry-pick --abort
+  cpc = cherry-pick --continue
+  rom = rebase origin/main
+  pushf = push --force-with-lease
+[color]
+  ui = auto
+[filter "lfs"]
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
+[init]
+  defaultBranch=main
+[commit]
+  gpgsign = true
+[gpg]
+  program = gpg

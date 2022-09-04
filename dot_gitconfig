@@ -6,7 +6,7 @@
 [core]
   excludesfile = $HOME/.gitignore_global
   quotepath = false
-  editor = code -w
+  editor = code --wait
 [alias]
   fe = fetch
   ci = commit
@@ -40,3 +40,11 @@
   gpgsign = true
 [gpg]
   program = gpg
+[difftool "vscode"]
+  cmd = code --wait --diff $LOCAL $REMOTE
+[diff]
+  tool = vscode
+[mergetool "vscode"]
+  cmd = code --wait $MERGED
+[merge]
+  tool = vscode

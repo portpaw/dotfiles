@@ -15,8 +15,8 @@ alias cdp="cd $HOME/Projects"
 alias gfrom="g fetch && g rom"
 alias rm="rm -i"
 alias v="mvim"
-alias vc="v $HOME/.vimrc"
-alias zc="c $HOME/.zshrc"
+alias vc="chezmoi edit $HOME/.vimrc"
+alias zc="chezmoi edit $HOME/.zshrc"
 alias rand="openssl rand -base64"
 
 # default editor

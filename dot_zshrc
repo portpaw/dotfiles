@@ -10,7 +10,7 @@ export MANPATH="/usr/local/man:$MANPATH"
 export PAGER="less -R"
 
 # command aliases
-alias c="code --wait"
+alias c="code"
 alias cdp="cd $HOME/Projects"
 alias gfrom="g fetch && g rom"
 alias rm="rm -i"
@@ -23,7 +23,7 @@ alias rand="openssl rand -base64"
 if [[ -n $SSH_CONNECTION ]]; then
 	export EDITOR="vim"
 else
-	export EDITOR="code --wait"
+	export EDITOR="code"
 fi
 
 # oh-my-zsh

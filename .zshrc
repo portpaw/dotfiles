@@ -16,8 +16,8 @@ alias gfrom="g fetch && g rom"
 alias rm="rm -i"
 alias nvim="neovide"
 alias v="nvim"
-alias vc="chezmoi edit --config $HOME/.config/chezmoi/chezmoi.vim.toml $HOME/.config/nvim/init.lua"
-alias zc="chezmoi edit $HOME/.zshrc"
+alias vc="v $HOME/.config/nvim/init.lua"
+alias zc="v $HOME/.zshrc"
 alias rand="openssl rand -base64"
 
 # default editor

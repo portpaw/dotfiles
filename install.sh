@@ -131,6 +131,9 @@ fi
 echo "Disabling Gatekeeper for Neovide..."
 spctl --add /Applications/Neovide.app
 
+echo "Initializing neovim..."
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+
 echo "Setting Finder to show all filename extensions by default... "
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 

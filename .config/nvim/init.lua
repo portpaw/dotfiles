@@ -1,6 +1,8 @@
+local api = vim.api
 local cmd = vim.cmd
 local fn = vim.fn
 local g = vim.g
+local keymap = vim.keymap
 local opt = vim.opt
 
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
@@ -18,18 +20,31 @@ end
 require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 	use 'folke/tokyonight.nvim'
+	use {
+		'phaazon/hop.nvim',
+		branch = 'v2',
+		config = function()
+			require'hop'.setup {}
+		end
+	}
 
 	if packer_bootstrap then
 		require('packer').sync()
 	end
 end)
 
--- enable Tokyo Night theme
-cmd[[colorscheme tokyonight]]
+-- leader key
+g.mapleader = ' '
+g.maplocalleader = ','
 
--- leader keys
-g.mapleader = [[ ]]
-g.maplocalleader = [[,]]
+-- enable Tokyo Night theme
+cmd 'colorscheme tokyonight'
+
+-- Source Code Pro at 18pt
+opt.guifont = { "Source Code Pro for Powerline", ":h18" }
+
+-- enable mouse support in normal and visual modes
+opt.mouse = 'nv'
 
 -- reload files if they're changed outside of vim
 opt.autoread = true
@@ -61,6 +76,9 @@ opt.wrap = false
 -- show line numbers
 opt.number = true
 
+-- highlight current line
+opt.cursorline = true
+
 -- always show 5 lines of context when scrolling
 opt.scrolloff = 5
 
@@ -72,15 +90,6 @@ opt.wildmode = {'list', 'longest'}
 opt.list = true
 opt.listchars = { tab = '▸ ', trail = '·' }
 
--- enable mouse support
-opt.mouse = 'nv' 
-
--- highlight current line
-opt.cursorline = true
-
--- faster scrolling
-opt.ttyfast = true
-
 -- more natural window splitting
 opt.splitbelow = true
 opt.splitright = true
@@ -89,3 +98,22 @@ opt.splitright = true
 opt.backupdir = '~/.local/share/nvim/backup//'
 opt.directory = '~/.local/share/nvim/swap//'
 opt.undodir = '~/.local/share/nvim/undo//'
+
+-- enter command mode without holding shift
+keymap.set({ 'n', 'x' }, ';', ':')
+
+-- copy + paste from system clipboard
+keymap.set({ 'n', 'x' }, '<d-c>', '"+y')
+keymap.set('n', '<d-v>', '"+p')
+keymap.set({ 'i', 'c' }, '<d-v>', '<c-r>+')
+
+-- line navigation with cmd keys
+keymap.set({ 'n', 'x' }, '<d-left>', '0')
+keymap.set({ 'n', 'x' }, '<d-right>', '$')
+
+-- hop.nvim navigation
+keymap.set({ 'n', 'x' }, '<leader>f', '<cmd>HopChar1<cr>')
+keymap.set({ 'n', 'x' }, 'f', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>")
+keymap.set({ 'n', 'x' }, 'F', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>")
+keymap.set({ 'n', 'x' }, 't', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })<cr>")
+keymap.set({ 'n', 'x' }, 'T', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })<cr>")

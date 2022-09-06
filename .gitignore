@@ -1,0 +1,9 @@
+*
+
+!.config/nvim/*
+!.gitconfig
+!.gitignore
+!.gitignore_global
+!.gnupg/gpg-agent.conf
+!.vimrc
+!.zshrc

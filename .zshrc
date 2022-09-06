@@ -15,7 +15,7 @@ alias cdp="cd $HOME/Projects"
 alias gfrom="g fetch && g rom"
 alias rm="rm -i"
 alias v="nvim"
-alias vc="chezmoi edit --config $HOME/.config/chezmoi/chezmoi.vim.toml $HOME/.config/nvim/init.vim"
+alias vc="chezmoi edit --config $HOME/.config/chezmoi/chezmoi.vim.toml $HOME/.config/nvim/init.lua"
 alias zc="chezmoi edit $HOME/.zshrc"
 alias rand="openssl rand -base64"
 

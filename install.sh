@@ -16,7 +16,6 @@ else
 fi
 
 homebrew_packages=(
-	chezmoi
 	fzf
 	git
 	gnupg
@@ -117,11 +116,15 @@ else
 	cd
 fi
 
-if [[ -d "$HOME/.local/share/chezmoi" ]]; then
-  echo "chezmoi has already been initialized."
+if [[ -d "$HOME/.git" ]]; then
+  echo "dotfiles have already been initialized."
 else
-  echo "Initializing chezmoi..."
-  chezmoi init --apply https://github.com/portpaw/dotfiles.git
+  echo "Initializing dotfiles..."
+	git init
+	git remote add origin --mirror=fetch https://github.com/portpaw/dotfiles.git
+	git remote add origin --mirror=push git@github.com:portpaw/dotfiles.git
+	git fetch
+	git checkout -f main
 fi
 
 echo "Setting Finder to show all filename extensions by default... "

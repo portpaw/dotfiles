@@ -59,8 +59,9 @@ opt.autoread = true
 -- show matching braces
 opt.showmatch = true
 
--- case-insensitive searching
+-- case-insensitive searching (unless the search term has a capital letter)
 opt.ignorecase = true
+opt.smartcase = true
 
 -- incremental searching
 opt.incsearch = true

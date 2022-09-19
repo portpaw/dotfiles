@@ -118,8 +118,8 @@ keymap.set({ 'n', 'x' }, ';', ':')
 
 -- copy + paste from system clipboard
 keymap.set({ 'n', 'x' }, '<d-c>', '"+y')
-keymap.set('n', '<d-v>', '"+p')
-keymap.set({ 'i', 'c' }, '<d-v>', '<c-r>+')
+keymap.set({ 'n', 'x' }, '<d-v>', ':set paste<cr>"+p:set nopaste<cr>')
+keymap.set({ 'i', 'c' }, '<d-v>', '<c-r><c-o>+')
 
 -- line navigation with cmd keys
 keymap.set({ 'n', 'x' }, '<d-left>', '0')

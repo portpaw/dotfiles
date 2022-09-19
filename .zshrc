@@ -16,8 +16,8 @@ alias gfrom="g fetch && g rom"
 alias rm="rm -i"
 alias nvim="neovide"
 alias v="nvim"
-alias vc="v $HOME/.config/nvim/init.lua"
-alias zc="v $HOME/.zshrc"
+alias vc="c $HOME/.config/nvim/init.lua"
+alias zc="c $HOME/.zshrc"
 alias rand="openssl rand -base64"
 
 # default editor

@@ -128,7 +128,7 @@ keymap.set('c', '<d-left>', '<home>')
 keymap.set('c', '<d-right>', '<end>')
 
 -- hop.nvim navigation
-keymap.set({ 'n', 'x' }, '<leader>f', '<cmd>HopChar1<cr>')
+keymap.set({ 'n', 'x' }, '<leader>f', ':HopChar1<cr>')
 keymap.set({ 'n', 'x' }, 'f', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>")
 keymap.set({ 'n', 'x' }, 'F', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>")
 keymap.set({ 'n', 'x' }, 't', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })<cr>")

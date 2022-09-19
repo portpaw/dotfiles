@@ -47,6 +47,9 @@ cmd 'colorscheme tokyonight'
 -- Source Code Pro at 18pt
 opt.guifont = { "Source Code Pro for Powerline", ":h18" }
 
+-- truecolor support
+opt.termguicolors = true
+
 -- enable mouse support in normal and visual modes
 opt.mouse = 'nv'
 

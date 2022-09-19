@@ -107,6 +107,12 @@ opt.backupdir = '~/.local/share/nvim/backup//'
 opt.directory = '~/.local/share/nvim/swap//'
 opt.undodir = '~/.local/share/nvim/undo//'
 
+-- increase the undo limit
+opt.history = 1000
+
+-- set window title to current file
+opt.title = true
+
 -- enter command mode without holding shift
 keymap.set({ 'n', 'x' }, ';', ':')
 

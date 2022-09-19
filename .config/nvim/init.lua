@@ -121,9 +121,11 @@ keymap.set({ 'n', 'x' }, '<d-c>', '"+y')
 keymap.set({ 'n', 'x' }, '<d-v>', ':set paste<cr>"+p:set nopaste<cr>')
 keymap.set({ 'i', 'c' }, '<d-v>', '<c-r><c-o>+')
 
--- line navigation with cmd keys
+-- line start/end navigation with cmd keys
 keymap.set({ 'n', 'x' }, '<d-left>', '0')
 keymap.set({ 'n', 'x' }, '<d-right>', '$')
+keymap.set('c', '<d-left>', '<home>')
+keymap.set('c', '<d-right>', '<end>')
 
 -- hop.nvim navigation
 keymap.set({ 'n', 'x' }, '<leader>f', '<cmd>HopChar1<cr>')

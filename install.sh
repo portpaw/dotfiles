@@ -30,7 +30,6 @@ homebrew_packages=(
 	zsh
 )
 
-
 echo "Installing Homebrew packages..."
 brew install ${homebrew_packages[@]}
 
@@ -86,7 +85,7 @@ if [[ -d "$HOME/.nvm" ]]; then
 else
 	echo "Installing nvm..."
 	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-	nvm install default
+	nvm install stable
 fi
 
 if [[ -d "$HOME/.oh-my-zsh" ]]; then

@@ -158,7 +158,6 @@ echo "Adding favorite apps to dock..."
 dockutil --add /Applications/Google\ Chrome.app --no-restart
 dockutil --add /Applications/1Password.app --no-restart
 dockutil --add /Applications/Visual\ Studio\ Code.app --no-restart
-dockutil --add /Applications/Neovide.app --no-restart
 dockutil --add /Applications/iTerm.app --no-restart
 dockutil --add /Applications/zoom.us.app --no-restart
 dockutil --add /System/Applications/Messages.app --no-restart
